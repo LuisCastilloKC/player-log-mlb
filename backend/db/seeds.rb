@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Player.create(name: "Vladimir Guerrero Jr,", age:"22", gender: "M", team_name: "Toronto Blue Jays", hight: "6'2", birth_country: "Canada", position: "1B", jersey_number: "27")
+
+
+Team.create(name: "Toronto Blue Jays")
