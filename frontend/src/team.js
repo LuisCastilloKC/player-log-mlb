@@ -9,6 +9,10 @@ class Team{
 
         teamDiv.innerHTML +=
         `
+        <ul>
+            <h2>MLB Team Name</h2>
+            <li> <b> Team Name:</b> ${this.name} </li>
+        </ul>
         
         `
     }
