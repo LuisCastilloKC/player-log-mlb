@@ -34,3 +34,9 @@ const createForm = () => {
 
     teamCreate.addEventListener("submit", )
 }
+
+const teamCreateSubmit = () => {
+    event.preventDefault();
+    let tname = document.getElementById("name").value
+    console.log(tname)
+}
