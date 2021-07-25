@@ -17,3 +17,18 @@ const fetchTeams = () =>{
     
     })
 }
+
+//CREAT 
+const createForm = () => {
+    let teamCreate = document.getElementById("create-div")
+    teamCreate.innerHTML +=
+    `
+    <h2>Create Team Name</h2>
+        <form >
+            <label for="tname">Team Name:</label>
+            <input type="text" name="tname" id="tname" ><br>
+            <button type="submit">Create</button>
+        </form>
+    
+    `
+}
