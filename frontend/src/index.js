@@ -32,11 +32,28 @@ const createForm = () => {
         </form>
     `
 
-    teamCreate.addEventListener("submit", )
+    teamCreate.addEventListener("submit", teamCreateSubmit)
 }
 
 const teamCreateSubmit = () => {
     event.preventDefault();
-    let tname = document.getElementById("name").value
-    console.log(tname)
+    let tname = document.getElementById("tname").value
+    
+    let team = {
+        tname: tname,
+    }
+
+    fetch(`${BASE_URL}/teams`, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-type': 'application/json' 
+        },
+        body: JSON.stringify(team)
+    })
+    .then(resp => resp.json())
+    .then(team => {
+        let tm = new Team(team.id, team.name)
+        tm.renderTeam();
+    })
 }
