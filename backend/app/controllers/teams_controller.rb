@@ -3,33 +3,33 @@ class TeamsController < ApplicationController
 
   # GET /teams
   def index
-    @teams = Team.all
+    teams = Team.all
 
-    render json: @teams
+    render json: teams
   end
 
   # GET /teams/1
   def show
-    render json: @team
+    render json: team
   end
 
   # POST /teams
   def create
-    @team = Team.new(team_params)
+    team = Team.new(team_params)
 
-    if @team.save
-      render json: @team, status: :created, location: @team
+    if team.save
+      render json: team, status: :created, location: team
     else
-      render json: @team.errors, status: :unprocessable_entity
+      render json: team.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /teams/1
   def update
-    if @team.update(team_params)
-      render json: @team
+    if team.update(team_params)
+      render json: team
     else
-      render json: @team.errors, status: :unprocessable_entity
+      render json: team.errors, status: :unprocessable_entity
     end
   end
 
