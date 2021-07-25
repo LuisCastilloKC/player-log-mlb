@@ -37,10 +37,10 @@ const createForm = () => {
 
 const teamCreateSubmit = () => {
     event.preventDefault();
-    let tname = document.getElementById("tname").value
+    let name = document.getElementById("tname").value
     
     let team = {
-        tname: tname,
+        name: name,
     }
 
     fetch(`${BASE_URL}/teams`, {
