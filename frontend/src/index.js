@@ -30,6 +30,7 @@ const createForm = () => {
             <input type="text" name="tname" id="tname" ><br>
             <button type="submit">Create</button>
         </form>
-    
     `
+
+    teamCreate.addEventListener("submit", )
 }
