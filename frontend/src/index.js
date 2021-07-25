@@ -57,3 +57,22 @@ const teamCreateSubmit = () => {
         tm.renderTeam();
     })
 }
+
+// DELETE
+const deleteTeam = () =>{
+    let teamId = parseInt(event.target.dataset.id)
+
+    fetch(`${BASE_URL}/teams/${teamId}`,{
+        method: 'DELETE'
+    })
+
+}
+    
+
+
+// let buttons = document.getElementsByClassName("delete-bttn")
+// for (const button of buttons){
+//     button.addEventListener("click", () => {
+//         debugger;
+//     })
+// }
