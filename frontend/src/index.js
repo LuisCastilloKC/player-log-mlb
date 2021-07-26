@@ -65,7 +65,7 @@ const deleteTeam = () =>{
     fetch(`${BASE_URL}/teams/${teamId}`,{
         method: 'DELETE'
     })
-    this.location.reload()
+    
 }
     
 
