@@ -10,12 +10,12 @@ const fetchTeams = () =>{
     fetch(`${BASE_URL}/teams`) // fetching all the data from teams route
     .then(resp => resp.json())
     .then(teams => {
-
+        
         for (const team of teams){
             let tm = new Team(team.id, team.name)
             tm.renderTeam();
         }
-    
+        
     })
 }
 
@@ -61,10 +61,11 @@ const teamCreateSubmit = () => {
 // DELETE
 const deleteTeam = () =>{
     let teamId = parseInt(event.target.dataset.id)
-
+    document.getElementById(`team${teamId}`).remove()
     fetch(`${BASE_URL}/teams/${teamId}`,{
         method: 'DELETE'
     })
+    
     
 }
     

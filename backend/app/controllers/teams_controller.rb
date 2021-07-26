@@ -37,6 +37,7 @@ class TeamsController < ApplicationController
   def destroy
     team = Team.find_by(id: params[:id])
     team.destroy
+   #byebug
   end
 
   private
