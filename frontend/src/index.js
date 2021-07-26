@@ -26,8 +26,8 @@ const createForm = () => {
     `
     <h2>Create Team Name</h2>
         <form >
-            <label for="tname">Team Name:</label>
-            <input type="text" name="tname" id="tname" ><br>
+            <label for="name">Team Name:</label>
+            <input type="text" name="name" id="name" ><br>
             <button type="submit">Create</button>
         </form>
     `
@@ -37,7 +37,7 @@ const createForm = () => {
 
 const teamCreateSubmit = () => {
     event.preventDefault();
-    let name = document.getElementById("tname").value
+    let name = document.getElementById("name").value
     
     let team = {
         name: name,
@@ -70,9 +70,3 @@ const deleteTeam = () =>{
     
 
 
-// let buttons = document.getElementsByClassName("delete-bttn")
-// for (const button of buttons){
-//     button.addEventListener("click", () => {
-//         debugger;
-//     })
-// }

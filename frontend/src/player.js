@@ -1,5 +1,5 @@
 class Player{
-    cconstructor(name, age, gender, team_name, hight, birth_country, position, jersey_number){
+    constructor(name, age, gender, team_name, hight, birth_country, position, jersey_number){
         this.name = name;
         this.age = age;
         this.gender = gender;

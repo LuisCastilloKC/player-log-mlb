@@ -4,12 +4,12 @@ class TeamsController < ApplicationController
   # GET /teams
   def index
     teams = Team.all
-
     render json: teams
   end
 
   # GET /teams/1
   def show
+    team = Team.find_by(id: params[:id])
     render json: team
   end
 
@@ -35,13 +35,14 @@ class TeamsController < ApplicationController
 
   # DELETE /teams/1
   def destroy
-    @team.destroy
+    team = Team.find_by(id: params[:id])
+    team.destroy
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_team
-      @team = Team.find(params[:id])
+      team = Team.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
