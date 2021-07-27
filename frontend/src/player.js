@@ -18,6 +18,7 @@ class Player{
         
         let name = document.createElement('li')
         name.className = 'name'
+        name.textContent = `Name: ${this.name}`
         
     }
 
