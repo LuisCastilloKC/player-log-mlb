@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     fetchTeams()
     createForm()
+    fetchPlayer()
 });
 
 const BASE_URL = "http://127.0.0.1:3000"
@@ -10,7 +11,7 @@ const fetchTeams = () =>{
     fetch(`${BASE_URL}/teams`) // fetching all the data from teams route
     .then(resp => resp.json())
     .then(teams => {
-        
+    
         for (const team of teams){
             let tm = new Team(team.id, team.name)
             tm.renderTeam();
@@ -19,12 +20,13 @@ const fetchTeams = () =>{
     })
 }
 
+
 //CREAT 
 const createForm = () => {
     let teamCreate = document.getElementById("create-div")
     teamCreate.innerHTML +=
     `
-    <h2>Create Team Name</h2>
+        <h2>Create Team Name</h2>
         <form >
             <label for="name">Team Name:</label>
             <input type="text" name="name" id="name" ><br>
@@ -70,4 +72,28 @@ const deleteTeam = () =>{
 }
     
 
+const PLAYER_API = "http://127.0.0.1:3000"
+
+const fetchPlayer = () =>{
+    fetch(`${PLAYER_API}/players`)
+        .then(resp => resp.json())
+        .then(playersData => {
+            
+            for (const player of playersData){
+                let playerVar = new Player(
+                    player.name, 
+                    player.age, 
+                    player.gender, 
+                    player.team_name, 
+                    player.hight, 
+                    player.birth_country, 
+                    player.position, 
+                    player.jersey_number);
+                    playerVar.renderPlayer();
+                    console.log(playerVar)
+              
+            }
+    })
+
+}
 
