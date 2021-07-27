@@ -14,6 +14,10 @@ class Player{
     renderPlayer(){
         let playerDiv = document.createElement('div')
         playerDiv.className = 'player'
+        playerDiv.id = `player-${this.id}`
+        
+        let name = document.createElement('li')
+        name.className = 'name'
         
     }
 
