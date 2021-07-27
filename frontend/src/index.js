@@ -90,7 +90,6 @@ const fetchPlayer = () =>{
                     player.position, 
                     player.jersey_number);
                     playerVar.renderPlayer();
-                    console.log(playerVar)
               
             }
     })
