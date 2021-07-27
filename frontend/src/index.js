@@ -81,6 +81,7 @@ const fetchPlayer = () =>{
             
             for (const player of playersData){
                 let playerVar = new Player(
+                    player.id,
                     player.name, 
                     player.age, 
                     player.gender, 
