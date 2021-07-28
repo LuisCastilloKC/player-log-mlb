@@ -10,18 +10,24 @@ class Player{
         this.position = position;
         this.jersey_number = jersey_number
     }
+    
 
     renderPlayer(){
         let playerDiv = document.createElement('div')
         playerDiv.className = 'player'
         playerDiv.id = `player-${this.id}`
+         
+        playerDiv.innerHTML = " Hello I'm Here "
         
+
         let name = document.createElement('li')
         name.className = 'name'
         name.textContent = `Name: ${this.name}`
         
+        playerDiv.append(name)
+        document.body.appendChild(playerDiv);
+        
     }
-
+    
 };
-
 
