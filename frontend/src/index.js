@@ -27,10 +27,10 @@ const createForm = () => {
     teamCreate.innerHTML +=
     `
         <h2>Create Team Name</h2>
-        <form >
+        <form>
             <label for="name">Team Name:</label>
             <input type="text" name="name" id="name" ><br>
-            <button type="submit">Create</button>
+            <button type="submit" onclick="clearFields()">Create</button>
         </form>
     `
 
@@ -58,6 +58,12 @@ const teamCreateSubmit = () => {
         let tm = new Team(team.id, team.name)
         tm.renderTeam();
     })
+}
+
+// This function work but it clear the value -- will come back later
+const clearFields = () =>{
+//    teamClearField = document.getElementsByName("tmName").value=""
+
 }
 
 // DELETE
