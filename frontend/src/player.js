@@ -39,9 +39,14 @@ class Player{
 
         let birth_country = document.createElement('li')
         birth_country.className = 'birth_country'
-        birth_country.textContent = `Birth Country: ${this.birth_country}` 
+        birth_country.textContent = `Birth Country: ${this.birth_country}`
+        
+        let position = document.createElement('li')
+        position.className = 'position'
+        position.textContent = `Position: ${this.position}`
 
-        playerDiv.append(name, age, gender, team_name, hight, birth_country)
+
+        playerDiv.append(name, age, gender, team_name, hight, birth_country, position)
         document.body.appendChild(playerDiv);
         
     }
