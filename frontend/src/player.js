@@ -1,5 +1,5 @@
 class Player{
-    constructor(id, name, age, gender, team_name, hight, birth_country, position, jersey_number){
+    constructor(id, name, age, gender, team_name, hight, birth_country, position, jersey_number, team_id){
         this.id = id
         this.name = name;
         this.age = age;
@@ -9,6 +9,7 @@ class Player{
         this.birth_country = birth_country;
         this.position = position;
         this.jersey_number = jersey_number
+        this.team_id = team_id
     }
     
 
