@@ -17,14 +17,19 @@ class Player{
         playerDiv.className = 'player'
         playerDiv.id = `player-${this.id}`
          
-        playerDiv.innerHTML = " Hello I'm Here "
-        
-
         let name = document.createElement('li')
         name.className = 'name'
         name.textContent = `Name: ${this.name}`
         
-        playerDiv.append(name)
+        let age = document.createElement('li')
+        age.className = 'age'
+        age.textContent = `Age: ${this.age}`
+
+        let gender = document.createElement('li')
+        gender.className = 'gender'
+        gender.textContent = `Gender: ${this.gender}`
+
+        playerDiv.append(name, age, gender)
         document.body.appendChild(playerDiv);
         
     }
