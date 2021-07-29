@@ -10,8 +10,8 @@ class Player{
         this.position = position;
         this.jersey_number = jersey_number
         this.team_id = team_id
+        console.log(this.team_id)
     }
-    
 
     renderPlayer(){
         let playerDiv = document.createElement('div')
@@ -50,8 +50,12 @@ class Player{
         jersey_number.className = 'jersey_number'
         jersey_number.textContent = `Jersey Number: ${this.jersey_number}`
 
+        let team_id = document.createElement('li')
+        team_id.className = 'team_id'
+        team_id.textContent = `Represent Team Log: ${this.team_id}`
 
-        playerDiv.append(name, age, gender, team_name, hight, birth_country, position, jersey_number)
+
+        playerDiv.append(name, age, gender, team_name, hight, birth_country, position, jersey_number, team_id)
         document.body.appendChild(playerDiv);
         
     }

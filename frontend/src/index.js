@@ -95,7 +95,7 @@ const fetchPlayer = () =>{
                     player.hight, 
                     player.birth_country, 
                     player.position, 
-                    player.jersey_number
+                    player.jersey_number,
                     player.team_id);
                     playerVar.renderPlayer();
               
