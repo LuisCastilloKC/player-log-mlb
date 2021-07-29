@@ -45,8 +45,12 @@ class Player{
         position.className = 'position'
         position.textContent = `Position: ${this.position}`
 
+        let jersey_number = document.createElement('li')
+        jersey_number.className = 'jersey_number'
+        jersey_number.textContent = `Jersey Number: ${this.jersey_number}`
 
-        playerDiv.append(name, age, gender, team_name, hight, birth_country, position)
+
+        playerDiv.append(name, age, gender, team_name, hight, birth_country, position, jersey_number)
         document.body.appendChild(playerDiv);
         
     }
