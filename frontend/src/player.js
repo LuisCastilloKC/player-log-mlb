@@ -29,7 +29,19 @@ class Player{
         gender.className = 'gender'
         gender.textContent = `Gender: ${this.gender}`
 
-        playerDiv.append(name, age, gender)
+        let team_name = document.createElement('li')
+        team_name.className = 'team_name'
+        team_name.textContent = `Team Name: ${this.team_name}`
+        
+        let hight = document.createElement('li')
+        hight.className = 'hight'
+        hight.textContent = `Hight: ${this.hight}`
+
+        let birth_country = document.createElement('li')
+        birth_country.className = 'birth_country'
+        birth_country.textContent = `Birth Country: ${this.birth_country}` 
+
+        playerDiv.append(name, age, gender, team_name, hight, birth_country)
         document.body.appendChild(playerDiv);
         
     }
