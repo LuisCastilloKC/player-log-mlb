@@ -1,3 +1,10 @@
+const teamForm = document.getElementById("team-form")
+teamForm.addEventListener("submit", submitTeam)
+const submitForm = () => {
+    
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
     fetchTeams()
     createForm()
