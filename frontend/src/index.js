@@ -30,7 +30,7 @@ const createForm = () => {
         <form>
             <label for="name">Team Name:</label>
             <input type="text" name="name" id="name" ><br>
-            <button type="submit" onclick="clearFields()">Create</button>
+            <button type="submit">Create</button>
         </form>
     `
 
@@ -44,7 +44,7 @@ const teamCreateSubmit = () => {
     let team = {
         name: name,
     }
-
+    clearFields()
     fetch(`${BASE_URL}/teams`, {
         method: "POST",
         headers: {
@@ -62,7 +62,7 @@ const teamCreateSubmit = () => {
 
 // This function work but it clear the value -- will come back later
 const clearFields = () =>{
-//    teamClearField = document.getElementsByName("tmName").value=""
+   document.getElementById("name").value=""
 
 }
 
@@ -104,3 +104,17 @@ const fetchPlayer = () =>{
 
 }
 
+const addPlayer = () => {
+    tId = parseInt(event.target.dataset.id)
+    document.getElementById(`team${teamId}`)
+
+}
+
+// const deleteTeam = () =>{
+//     let teamId = parseInt(event.target.dataset.id)
+//     debugger;
+//     document.getElementById(`team${teamId}`).remove()
+//     fetch(`${BASE_URL}/teams/${teamId}`,{
+//         method: 'DELETE'
+//     })
+    

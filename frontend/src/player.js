@@ -10,7 +10,7 @@ class Player{
         this.position = position;
         this.jersey_number = jersey_number
         this.team_id = team_id
-        console.log(this.team_id)
+       
     }
 
     renderPlayer(){
