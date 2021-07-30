@@ -32,7 +32,7 @@ function submitTeam(){
 function submitPlayer(e){
     e.preventDefault()
     const playerInput = e.target.children[0].value
-    const PlayerList = e.target.nextElementSibling
+    const playerList = e.target.nextElementSibling
 
     const li = document.createElement('li')
     li.innerText = playerInput
