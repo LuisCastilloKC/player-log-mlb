@@ -129,7 +129,9 @@ const playerSubmit = () =>{
     let player = {
         name: name,
         age: age,
+        
     }
+   
     fetch(`${PLAYER_API}/players`, {
         method: "POST",
         headers: {
