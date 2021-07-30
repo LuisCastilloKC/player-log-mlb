@@ -1,6 +1,5 @@
 class PlayersController < ApplicationController
-
-    before_action :set_player, only: [:show, :update, :destroy]
+    #before_action :set_player, only: [:show, :update, :destroy]
     
     # GET /players
     def index
@@ -17,24 +16,17 @@ class PlayersController < ApplicationController
   
     # POST /players
     def create
-      player = Player.new(team_params)
+      player = Player.new(player_params)
   
-      if player.save
-        render json: player, status: :created, location: player
-      else
-        render json: player.errors, status: :unprocessable_entity
-      end
+    #   if
+        #player.save
+        render json: player, only: [:id, :name, :age, :gender, :team_name, :hight, :birth_country, :position, :jersey_number, :team_id]#status: :created, location: player
+    #   else
+    #     render json: player.errors, status: :unprocessable_entity
+    #   end
     end
   
-    # PATCH/PUT /players/1
-    def update
-      if player.update(player_params)
-        render json: player
-      else
-        render json: player.errors, status: :unprocessable_entity
-      end
-    end
-  
+    
     # DELETE /players/1
     def destroy
       player = Player.find_by(id: params[:id])
