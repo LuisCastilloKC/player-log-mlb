@@ -2,9 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchTeams()
     createForm()
     fetchPlayer()
+    playerForm()
 });
 
 const BASE_URL = "http://127.0.0.1:3000"
+
 
 //READ - showing to the teams index
 const fetchTeams = () =>{
@@ -104,11 +106,54 @@ const fetchPlayer = () =>{
 
 }
 
+const playerForm = () =>{
+    let createPlayerDiv = document.getElementById("create_player_div")
+        createPlayerDiv.innerHTML +=
+    `
+        <form>
+            <label for="p_name">Player Name:</label>
+            <input type="text" name="p_name" id="p_name" ><br>
+            <label for="p_age">Age:</label>
+            <input type="text" name="p_age" id="p_age" ><br>
+            <button type="submit">Add Player</button>
+        </form>
+    `
+    createPlayerDiv.addEventListener("submit", playerSubmit)
+}
+
+const playerSubmit = () =>{
+    event.preventDefault();
+    let p_name = document.getElementById("p_name").value 
+    let p_age = document.getElementById("p_age").value 
+    
+    let player = {
+        name: name,
+        age: age,
+    }
+    fetch(`${PLAYER_API}/players`, {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-type': 'application/json'
+        },
+        body:JSON.stringify(player)
+    })
+    .then(resp => resp.json())
+    .then(player => {
+        let pl = new Player(player.id, player.name, player.age)
+        pl.renderPlayer()
+        
+    })
+
+}
+
 const addPlayer = () => {
     tId = parseInt(event.target.dataset.id)
     document.getElementById(`team${teamId}`)
 
 }
+
+
 
 // const deleteTeam = () =>{
 //     let teamId = parseInt(event.target.dataset.id)
