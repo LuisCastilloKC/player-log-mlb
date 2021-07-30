@@ -18,6 +18,9 @@ class PlayersController < ApplicationController
     def create
       player = Player.new(player_params)
   
+      team = Team.find(player_params.team_id)
+      player = team.players.create(player_params)
+
     #   if
         #player.save
         render json: player, only: [:id, :name, :age, :gender, :team_name, :hight, :birth_country, :position, :jersey_number, :team_id]#status: :created, location: player
@@ -42,7 +45,7 @@ class PlayersController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def player_params
-        params.require(:player).permit(:name, :age, :gender, :team_name, :hight, :birth_country, :position, :jersey_number)
+        params.require(:player).permit(:name, :age, :gender, :team_name, :hight, :birth_country, :position, :jersey_number, :team_id)
       end
 
 end
