@@ -1,5 +1,6 @@
 const teamForm = document.getElementById("team-form")
 const teamInput = document.getElementById("team-input")
+const teamList = document.getElementById("team-list")
 
 teamForm.addEventListener("submit", submitTeam)
 
@@ -7,6 +8,18 @@ teamForm.addEventListener("submit", submitTeam)
 function submitTeam(){
     event.preventDefault()
     console.log(teamInput.value)
+    const li = document.createElement('li')
+    
+    const t = document.createElement('t')
+    t.innerText = teamInput.value
+    li.appendChild(t)
+
+    const playerForm = document.createElement('form')
+    playerForm.innerHTML += `<input typye="text"><input type="submit">`
+
+    li.append(t, playerForm)
+
+    teamList.appendChild(li)
 }
 
 
@@ -94,7 +107,7 @@ function submitTeam(){
 
 
 
-
+// ---------
 
 
 
