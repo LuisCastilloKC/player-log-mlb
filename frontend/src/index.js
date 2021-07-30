@@ -4,7 +4,7 @@ const teamList = document.getElementById("team-list")
 
 teamForm.addEventListener("submit", submitTeam)
 
-
+/// function to submit Create Team
 function submitTeam(){
     event.preventDefault()
     console.log(teamInput.value)
@@ -17,9 +17,13 @@ function submitTeam(){
     const playerForm = document.createElement('form')
     playerForm.innerHTML += `<input typye="text"><input type="submit">`
 
+    playerForm.addEventListener("submit", submitPlayer)
+
     li.append(t, playerForm)
 
     teamList.appendChild(li)
+
+    teamForm.reset()
 }
 
 
