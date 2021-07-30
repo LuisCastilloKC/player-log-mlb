@@ -36,8 +36,8 @@ function submitPlayer(e){
 
     const li = document.createElement('li')
     li.innerText = playerInput
-    playerList.appendChild(playerList)
-    console.log(e.target.nextElementSibling)
+    playerList.appendChild(li)
+    
 }
 
 // document.addEventListener("DOMContentLoaded", () => {
