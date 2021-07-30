@@ -15,17 +15,30 @@ function submitTeam(){
     li.appendChild(t)
 
     const playerForm = document.createElement('form')
-    playerForm.innerHTML += `<input typye="text"><input type="submit">`
-
+    playerForm.innerHTML += `<input typye="text" id="player-input">
+                            <input type="submit">`
     playerForm.addEventListener("submit", submitPlayer)
 
-    li.append(t, playerForm)
+    const playerList = document.createElement('ul')
+
+    li.append(t, playerForm, playerList)
 
     teamList.appendChild(li)
 
     teamForm.reset()
 }
 
+
+function submitPlayer(e){
+    e.preventDefault()
+    const playerInput = e.target.children[0].value
+    const PlayerList = e.target.nextElementSibling
+
+    const li = document.createElement('li')
+    li.innerText = playerInput
+    playerList.appendChild(playerList)
+    console.log(e.target.nextElementSibling)
+}
 
 // document.addEventListener("DOMContentLoaded", () => {
 //     fetchTeams()
