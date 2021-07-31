@@ -7,7 +7,7 @@ const BASE_URL = "http://127.0.0.1:3000"
 function fetchTeams(){
     fetch(`${BASE_URL}/teams`)
     .then(res => res.json())
-    .then(teams => teams.forEach(data => renderTeam(data.data.attributes)))
+    .then(teams => teams.forEach(data => renderTeam(data.data)))
 }
 
 teamForm.addEventListener("submit", submitTeam)
@@ -27,7 +27,7 @@ function submitTeam(){
     }
     fetch(`${BASE_URL}/teams`, configObj)
     .then(res => res.json())
-    .then(renderTeam)
+    .then(data => renderTeam(data.data))
     
 }
 
@@ -37,7 +37,7 @@ function renderTeam(team){
     li.dataset.id = team.id
 
     const t = document.createElement('t')
-    t.innerText = team.name
+    t.innerText = team.attributes.name
     li.appendChild(t)
 
     const playerForm = document.createElement('form')
@@ -46,6 +46,11 @@ function renderTeam(team){
     playerForm.addEventListener("submit", renderPlayer)
 
     const playerList = document.createElement('ul')
+    team.attributes.players.forEach(player => {
+        const playerLi = document.createElement('li')
+        playerLi.innerText = player.name
+        playerList.appendChild(playerLi)
+    })
 
     li.append(t, playerForm, playerList)
 
@@ -62,6 +67,7 @@ function renderPlayer(e){
     const teamId = e.target.parentElement.dataset.id
 
     const li = document.createElement('li')
+    li.dataset.id = teamId
     li.innerText = playerInput
     playerList.appendChild(li)
     
