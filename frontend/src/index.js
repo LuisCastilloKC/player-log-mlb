@@ -38,7 +38,11 @@ function renderTeam(team){
 
     const t = document.createElement('t')
     t.innerText = team.attributes.name
-    li.appendChild(t)
+
+    const deleteBtn = document.createElement("button")
+    deleteBtn.innerText = " delete"
+    deleteBtn.addEventListener("click", deleteTeam)
+    // li.appendChild(t)
 
     const playerForm = document.createElement('form')
     playerForm.innerHTML += `<input type="text" id="player-input">
@@ -52,13 +56,23 @@ function renderTeam(team){
         playerList.appendChild(playerLi)
     })
 
-    li.append(t, playerForm, playerList)
+    li.append(t, deleteBtn, playerForm, playerList)
 
     teamList.appendChild(li)
 
     teamForm.reset()
 
 }
+
+function deleteTeam(e){
+    const teamId = e.target.parentElement.dataset.id
+    fetch(`${BASE_URL}/team/${teamId}`, {
+        method: "DELETE"
+    })
+
+    e.target.parentElement.remove()
+}
+
 
 function renderPlayer(e){
     e.preventDefault()
