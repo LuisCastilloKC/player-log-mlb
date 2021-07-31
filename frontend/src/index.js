@@ -1,12 +1,28 @@
 const teamForm = document.getElementById("team-form")
 const teamInput = document.getElementById("team-input")
 const teamList = document.getElementById("team-list")
+const BASE_URL = "http://127.0.0.1:3000"
 
 teamForm.addEventListener("submit", submitTeam)
 
 /// function to submit Create Team
 function submitTeam(){
     event.preventDefault()
+    const configObj = {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            content: teamInput.value
+        })
+    }
+    fetch(`${BASE_URL}/teams`, configObj)
+}
+
+//  ---------- Render Team to the Frontend --------
+function renderTeam(){
     console.log(teamInput.value)
     const li = document.createElement('li')
     
@@ -26,8 +42,8 @@ function submitTeam(){
     teamList.appendChild(li)
 
     teamForm.reset()
-}
 
+}
 
 function submitPlayer(e){
     e.preventDefault()
@@ -37,7 +53,7 @@ function submitPlayer(e){
     const li = document.createElement('li')
     li.innerText = playerInput
     playerList.appendChild(li)
-    
+    e.target.reset()
 }
 
 // document.addEventListener("DOMContentLoaded", () => {
