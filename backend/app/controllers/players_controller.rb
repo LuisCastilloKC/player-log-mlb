@@ -17,16 +17,9 @@ class PlayersController < ApplicationController
     # POST /players
     def create
       player = Player.new(player_params)
-  
-      team = Team.find(player_params.team_id)
-      player = team.players.create(player_params)
-
-    #   if
-        #player.save
-        render json: player, only: [:id, :name, :age, :gender, :team_name, :hight, :birth_country, :position, :jersey_number, :team_id]#status: :created, location: player
-    #   else
-    #     render json: player.errors, status: :unprocessable_entity
-    #   end
+      if player.save
+        render json: player
+      end
     end
   
     
