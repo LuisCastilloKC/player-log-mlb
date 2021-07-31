@@ -42,7 +42,7 @@ function renderTeam(team){
     const playerForm = document.createElement('form')
     playerForm.innerHTML += `<input typye="text" id="player-input">
                             <input type="submit">`
-    playerForm.addEventListener("submit", submitPlayer)
+    playerForm.addEventListener("submit", renderPlayer)
 
     const playerList = document.createElement('ul')
 
@@ -54,7 +54,7 @@ function renderTeam(team){
 
 }
 
-function submitPlayer(e){
+function renderPlayer(e){
     e.preventDefault()
     const playerInput = e.target.children[0].value
     const playerList = e.target.nextElementSibling
@@ -63,7 +63,13 @@ function submitPlayer(e){
     li.innerText = playerInput
     playerList.appendChild(li)
     e.target.reset()
+    
+    submitPlayer(playerInput)
 }
+
+ function submitPlayer(player){
+    console.log(player)
+ }
 
 fetchTeams()
 // document.addEventListener("DOMContentLoaded", () => {
