@@ -3,6 +3,13 @@ const teamInput = document.getElementById("team-input")
 const teamList = document.getElementById("team-list")
 const BASE_URL = "http://127.0.0.1:3000"
 
+
+function fetchTeams(){
+    fetch(`${BASE_URL}/teams`)
+    .then(res => res.json())
+    .then(console.log)
+}
+
 teamForm.addEventListener("submit", submitTeam)
 
 /// function to submit Create Team
@@ -15,10 +22,12 @@ function submitTeam(){
             "Accept": "application/json"
         },
         body: JSON.stringify({
-            content: teamInput.value
+            name: teamInput.value
         })
     }
     fetch(`${BASE_URL}/teams`, configObj)
+    
+    renderTeam()
 }
 
 //  ---------- Render Team to the Frontend --------
@@ -56,6 +65,7 @@ function submitPlayer(e){
     e.target.reset()
 }
 
+fetchTeams()
 // document.addEventListener("DOMContentLoaded", () => {
 //     fetchTeams()
 //     createForm()
