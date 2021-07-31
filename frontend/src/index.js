@@ -7,7 +7,7 @@ const BASE_URL = "http://127.0.0.1:3000"
 function fetchTeams(){
     fetch(`${BASE_URL}/teams`)
     .then(res => res.json())
-    .then(teams => teams.forEach(renderTeam))
+    .then(teams => teams.forEach(data => renderTeam(data.data.attributes)))
 }
 
 teamForm.addEventListener("submit", submitTeam)
@@ -41,7 +41,7 @@ function renderTeam(team){
     li.appendChild(t)
 
     const playerForm = document.createElement('form')
-    playerForm.innerHTML += `<input typye="text" id="player-input">
+    playerForm.innerHTML += `<input type="text" id="player-input">
                             <input type="submit">`
     playerForm.addEventListener("submit", renderPlayer)
 
