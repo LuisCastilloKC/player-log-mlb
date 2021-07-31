@@ -59,16 +59,19 @@ function renderPlayer(e){
     e.preventDefault()
     const playerInput = e.target.children[0].value
     const playerList = e.target.nextElementSibling
+    const teamId = e.target.parentElement.dataset.id
 
     const li = document.createElement('li')
     li.innerText = playerInput
     playerList.appendChild(li)
+    
+    submitPlayer(playerInput, teamId)
+    
     e.target.reset()
     
-    submitPlayer(playerInput)
 }
 
- function submitPlayer(player){
+ function submitPlayer(player, teamId){
     fetch(`${BASE_URL}/players`, {
         method: "POST",
         headers: {
@@ -76,7 +79,8 @@ function renderPlayer(e){
             "Accent": "application/json"
         },
         body: JSON.stringify({
-            name: player
+            name: player,
+            team_id: teamId
         })         
     })
  }
