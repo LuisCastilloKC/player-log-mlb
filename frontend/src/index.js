@@ -66,7 +66,7 @@ function renderTeam(team){
 
 function deleteTeam(e){
     const teamId = e.target.parentElement.dataset.id
-    fetch(`${BASE_URL}/team/${teamId}`, {
+    fetch(`${BASE_URL}/teams/${teamId}`, {
         method: "DELETE"
     })
 
