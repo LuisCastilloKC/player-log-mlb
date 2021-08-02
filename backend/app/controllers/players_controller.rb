@@ -12,18 +12,8 @@ class PlayersController < ApplicationController
       end
     end
   
-    def destroy
-      player = Player.find_by(id: params[:id])
-      player.destroy
-    end
-  
     private
-      
-      def set_player
-        player = Player.find(params[:id])
-      end
-  
-      
+       
       def player_params
         params.require(:player).permit(:name, :team_id)
       end

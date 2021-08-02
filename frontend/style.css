@@ -1,0 +1,37 @@
+body{
+    background-color: rgb(240, 238, 238);
+
+}
+.top-bar{
+
+background-color: #041E46 ;
+
+}
+
+h1 {
+  text-align: left;
+  color: #FFF;
+  padding-left: 10px;
+  margin-top: 0px;
+}
+h2{
+    text-align: center;
+}
+
+.create-team-form{
+    text-align: center;
+    border: blue;
+}
+
+li{
+font-size: x-large;
+width: 0px 15px    ;
+}
+
+ul{
+    font-size: small;
+}
+
+button{
+    margin-left: 10px;
+}
