@@ -1,13 +1,15 @@
 class TeamsController < ApplicationController
 
   def index
-    render json: Team.all.map {|team| TeamSerializer.new(team)}
+    teams = Team.all
+    render json: teams, include: :players
+    # render json: Team.all.map {|team| TeamSerializer.new(team)}
   end
 
   def create
     team = Team.new(team_params)
     if team.save
-      render json: TeamSerializer.new(team)
+      render json: team, include: :players
     end
   end
 
