@@ -12,7 +12,7 @@ function fetchTeams(){
 
 teamForm.addEventListener("submit", submitTeam)
 
-/// function to submit Create Team
+
 function submitTeam(){
     event.preventDefault()
     const configObj = {
@@ -31,11 +31,11 @@ function submitTeam(){
     
 }
 
-//  ---------- Render Team to the Frontend --------
+
 function renderTeam(team){
-    const tm = {id: team.id, name: team.attributes.name, players: team.attributes.players} // sending id team  of team the team name and players
+    const tm = {id: team.id, name: team.attributes.name, players: team.attributes.players} 
     const newTeam = new Team(tm)
-    //console.log(team)
+    
     const li = document.createElement('li')
     li.dataset.id = newTeam.id
 
@@ -45,7 +45,7 @@ function renderTeam(team){
     const deleteBtn = document.createElement("button")
     deleteBtn.innerText = " delete"
     deleteBtn.addEventListener("click", deleteTeam)
-    // li.appendChild(t)
+    
 
     const playerForm = document.createElement('form')
     playerForm.innerHTML += `<input type="text" id="player-input">
