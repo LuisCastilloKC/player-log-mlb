@@ -11,6 +11,11 @@ class PlayersController < ApplicationController
         render json: player, include: :team
       end
     end
+
+    def destroy
+      player = Player.find_by(id: params[:id])
+      player.destroy
+    end
   
     private
        
