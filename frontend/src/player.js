@@ -3,36 +3,31 @@ class Player{
         this.id = player.id
         this.name = player.name;
         this.team_id = player.team_id;
-        //this.renderPlayer()
+        
     }
 
+// ------ Render Player -----
     renderPlayer(){
         
         const li = document.createElement('li')
         li.dataset.id = this.id
         li.innerText = this.name
-        //console.log(this)
-        
 
-        //----------------------------------------------------------
         const deleteBtnPlayer = document.createElement("button")
         deleteBtnPlayer.innerText = "Remove"
-        li.appendChild(deleteBtnPlayer)
-
 
         
-        deleteBtnPlayer.addEventListener("click", deletePlayer)
-        
-        //---------------------------------------------------------
-        
-        
-        
+        li.append(deleteBtnPlayer)
+
+
+        deleteBtnPlayer.addEventListener("click", Player.deletePlayer)
         
         const ul = document.querySelector(`#team-${this.team_id}`)
         ul.append(li)
 
     }
-    
+
+// ---------- Create Player ------------
      static create(player, team){
         fetch(`${BASE_URL}/players`, {
             method: "POST",
@@ -51,8 +46,18 @@ class Player{
             newPlayer.renderPlayer()
         }
              )
+             .catch(error => console.log("Error this was not fulfilled"))
      }
 
+// ------- Delete Player ---------
+     static deletePlayer(e){
+        const playerId = e.target.parentElement.dataset.id
+        fetch(`${BASE_URL}/players/${playerId}`, {
+            method: "DELETE"
+        })
+        e.target.parentElement.remove()
+    }
+    
     
 }
 

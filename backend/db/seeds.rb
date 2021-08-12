@@ -9,5 +9,5 @@
 team1 = Team.create(name: "Toronto Blue Jays")
 
 
-Player.create(name: "Vladimir Guerrero Jr,", age: 22, gender: "M", team_name: "Toronto Blue Jays", hight: 6, birth_country: "Canada", position: "1B", jersey_number: 27, team_id: team1.id)
+Player.create(name: "Vladimir Guerrero Jr", team_id: team1.id)
 

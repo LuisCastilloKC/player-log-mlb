@@ -3,7 +3,6 @@ class TeamsController < ApplicationController
   def index
     teams = Team.all
     render json: teams, include: :players
-    # render json: Team.all.map {|team| TeamSerializer.new(team)}
   end
 
   def create

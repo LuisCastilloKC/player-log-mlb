@@ -3,10 +3,10 @@ class Team{
     this.id = team.id
     this.name = team.name
     this.players = team.players
-    this.renderTeam()
-
+   
     }
 
+// ------------ Render Team ----------
     renderTeam(){
         const playerList = document.createElement('ul')
         playerList.id = `team-${this.id}`
@@ -18,7 +18,7 @@ class Team{
     
         const deleteBtn = document.createElement("button")
         deleteBtn.innerText = " delete"
-        deleteBtn.addEventListener("click", deleteTeam)
+        deleteBtn.addEventListener("click", Team.deleteTeam)
         
     
         const playerForm = document.createElement('form')
@@ -49,10 +49,11 @@ class Team{
 
         teamForm.reset()
     
+        teamForm.addEventListener("submit", Team.submitTeam)
     }
 
-
-     static submitTeam(){
+// -------- Submitting Team -----------
+    static submitTeam(){
         event.preventDefault()
         const configObj = {
             method: "POST",
@@ -66,9 +67,36 @@ class Team{
         }
         fetch(`${BASE_URL}/teams`, configObj)
         .then(res => res.json())
-        .then(data => new Team(data))
+        .then(data => { 
+            const newTeam = new Team(data)
+            newTeam.renderTeam()
+        }
+            )
+        .catch(error => console.log("Error this was not fulfilled"))
+    }
+
+
+// ---------- Delete Team ----------
+    static deleteTeam(e){
+        const teamId = e.target.parentElement.dataset.id
+        fetch(`${BASE_URL}/teams/${teamId}`, {
+            method: "DELETE"
+        })
+        
+        e.target.parentElement.remove()
+        
+    }
+
+// ------Fetching Teams ------
+    static fetchTeams(){
+        fetch(`${BASE_URL}/teams`) 
+        .then(res => res.json())
+        .then(teams =>  teams.forEach(data => {
+            const newTeam = new Team(data)
+            newTeam.renderTeam()
+        }))
+        .catch(error =>console.log("Error this was not fulfilled"))
         
     }
 
 }
-

@@ -10,17 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_22_003344) do
+ActiveRecord::Schema.define(version: 2021_08_12_042812) do
 
   create_table "players", force: :cascade do |t|
     t.string "name"
-    t.integer "age"
-    t.string "gender"
-    t.string "team_name"
-    t.integer "hight"
-    t.string "birth_country"
-    t.string "position"
-    t.integer "jersey_number"
     t.integer "team_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
