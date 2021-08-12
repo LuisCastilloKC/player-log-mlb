@@ -3,5 +3,7 @@ const teamInput = document.getElementById("team-input")
 const teamList = document.getElementById("team-list")
 const BASE_URL = "http://127.0.0.1:3000"
 
+teamForm.addEventListener("submit", Team.submitTeam)
+
 Team.fetchTeams()
 

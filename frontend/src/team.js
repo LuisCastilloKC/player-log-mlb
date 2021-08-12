@@ -49,7 +49,7 @@ class Team{
 
         teamForm.reset()
     
-        teamForm.addEventListener("submit", Team.submitTeam)
+        
     }
 
 // -------- Submitting Team -----------
